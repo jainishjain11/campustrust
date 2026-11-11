@@ -1,0 +1,135 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Department {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  code        String   @unique
+  description String?
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id             String   @id @default(cuid())
+  fullName       String
+  email          String   @unique
+  passwordHash   String?
+  role           String   @default("STUDENT")
+  status         String   @default("ACTIVE")
+  departmentId   String?
+  department     Department? @relation(fields: [departmentId], references: [id])
+  accessGrants   AccessGrant[]
+  riskFindings   RiskFinding[]
+  activities     ActivityLog[]
+  assignedTasks  MitigationTask[] @relation("TaskAssignee")
+  createdTasks   MitigationTask[] @relation("TaskCreator")
+  incidents      Incident[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Asset {
+  id             String   @id @default(cuid())
+  name           String
+  code           String   @unique
+  category       String
+  description    String?
+  criticality    Int      @default(3)
+  status         String   @default("ACTIVE")
+  accessGrants   AccessGrant[]
+  riskFindings   RiskFinding[]
+  activities     ActivityLog[]
+  incidents      Incident[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model AccessGrant {
+  id          String   @id @default(cuid())
+  userId      String
+  assetId     String
+  accessLevel String
+  isExpected  Boolean  @default(true)
+  grantedAt   DateTime @default(now())
+  expiresAt   DateTime?
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  asset       Asset    @relation(fields: [assetId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, assetId])
+}
+
+model RiskFinding {
+  id          String   @id @default(cuid())
+  findingCode String   @unique
+  title       String
+  description String
+  category    String
+  likelihood  Int
+  impact      Int
+  score       Int
+  severity    String
+  status      String   @default("OPEN")
+  userId      String?
+  assetId     String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  asset       Asset?   @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  incidents   Incident[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ActivityLog {
+  id          String   @id @default(cuid())
+  action      String
+  description String
+  eventType   String
+  ipAddress   String?
+  userId      String?
+  assetId     String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  asset       Asset?   @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+}
+
+model Incident {
+  id             String   @id @default(cuid())
+  incidentCode   String   @unique
+  title          String
+  description    String
+  status         String   @default("OPEN")
+  priority       String   @default("MEDIUM")
+  riskFindingId  String?
+  assetId        String?
+  reportedById   String?
+  riskFinding    RiskFinding? @relation(fields: [riskFindingId], references: [id], onDelete: SetNull)
+  asset          Asset?   @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  reportedBy     User?    @relation(fields: [reportedById], references: [id], onDelete: SetNull)
+  tasks          MitigationTask[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model MitigationTask {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  status      String   @default("PENDING")
+  dueDate     DateTime?
+  incidentId  String
+  assigneeId  String?
+  creatorId   String?
+  incident    Incident @relation(fields: [incidentId], references: [id], onDelete: Cascade)
+  assignee    User?    @relation("TaskAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+  creator     User?    @relation("TaskCreator", fields: [creatorId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
