@@ -5,6 +5,7 @@ import {
   Network, ShieldAlert, KeyRound, Server, User,
   CheckCircle2, RefreshCw, ZoomIn, ZoomOut, Info, AlertTriangle
 } from "lucide-react";
+import { GlassCard } from "@/components/ui/glass-card";
 
 type UserNode = {
   id: string;
@@ -308,13 +309,18 @@ export default function SecurityNetworkGraph() {
       {/* Header and Toolbar */}
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2.5">
-            Interactive Security Identity Graph
-            <span className="rounded-full bg-cyan-500/10 px-2.5 py-0.5 text-xs font-mono font-medium text-cyan-300 border border-cyan-500/20">
-              Live Topology
+          <div className="flex items-center gap-2 mb-1">
+            <span className="glass-chip text-[10px] uppercase tracking-wider text-[#60A5FA] font-mono">
+              Identity Topology
             </span>
+            <span className="glass-chip text-[10px] text-[#7DD3FC] font-mono">
+              Live Interactive Graph
+            </span>
+          </div>
+          <h1 className="text-2xl font-bold tracking-tight text-[#F5F8FF] sm:text-[28px] flex items-center gap-2.5">
+            Security Identity Graph
           </h1>
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-1 text-xs text-slate-300/80">
             Interactive visual mapping between campus identities, digital applications, and out-of-role entitlement paths.
           </p>
         </div>
@@ -322,54 +328,54 @@ export default function SecurityNetworkGraph() {
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={() => setFilterSuspiciousOnly(!filterSuspiciousOnly)}
-            className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold transition cursor-pointer border ${
+            className={`btn-secondary-glass flex items-center gap-1.5 text-xs font-semibold cursor-pointer ${
               filterSuspiciousOnly
-                ? "bg-red-500/20 text-red-300 border-red-500/40 glow-red"
-                : "liquid-glass text-slate-300 hover:text-white border-white/10"
+                ? "border-red-500/40 bg-red-950/40 text-[#F87171] glow-red"
+                : "text-slate-300"
             }`}
           >
-            <AlertTriangle size={14} className={filterSuspiciousOnly ? "text-red-400" : "text-amber-400"} />
+            <AlertTriangle size={14} className={filterSuspiciousOnly ? "text-[#F87171]" : "text-amber-400"} />
             {filterSuspiciousOnly ? "Showing Out-of-Role Only" : "Filter Out-of-Role Paths"}
           </button>
 
           <button
             onClick={loadData}
-            className="flex items-center gap-1.5 rounded-xl liquid-glass px-3 py-2 text-xs font-medium text-slate-300 hover:text-white border-white/10 transition cursor-pointer"
+            className="btn-secondary-glass flex items-center gap-1.5 text-xs font-medium cursor-pointer"
           >
-            <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
+            <RefreshCw size={13} className={loading ? "animate-spin text-[#60A5FA]" : ""} />
             Refresh
           </button>
         </div>
       </div>
 
       {/* Main Graph Visualization Container */}
-      <div className="relative rounded-2xl liquid-glass p-4 border border-white/10 overflow-hidden shadow-2xl">
+      <GlassCard variant="raised" glow="blue" className="p-4 sm:p-5 relative overflow-hidden">
         {/* Floating Graph Legend Overlay */}
-        <div className="absolute top-6 left-6 z-20 flex flex-wrap items-center gap-3 rounded-xl bg-slate-950/70 backdrop-blur-md px-3.5 py-2 text-[11px] border border-white/10 text-slate-300">
+        <div className="absolute top-6 left-6 z-20 flex flex-wrap items-center gap-3 rounded-full bg-[#0A1530]/85 backdrop-blur-md px-4 py-2 text-[11px] border border-white/10 text-slate-300 shadow-lg">
           <span className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#38BDF8] shadow-sm shadow-cyan-400/50" />
             Student Identity
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400 shadow-sm shadow-amber-400/50" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FCD34D] shadow-sm shadow-amber-400/50" />
             Faculty
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-purple-400 shadow-sm shadow-purple-400/50" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#C084FC] shadow-sm shadow-purple-400/50" />
             Digital Asset
           </span>
-          <span className="flex items-center gap-1.5 font-bold text-red-400">
-            <span className="h-2 w-4 border-t-2 border-dashed border-red-400 inline-block mr-0.5" />
+          <span className="flex items-center gap-1.5 font-bold text-[#F87171]">
+            <span className="h-2 w-4 border-t-2 border-dashed border-[#F87171] inline-block mr-0.5" />
             Out-of-Role / Excessive
           </span>
         </div>
 
         {/* Canvas Display */}
-        <div className="relative w-full h-[540px] rounded-xl overflow-hidden bg-[#020510]/80">
+        <div className="relative w-full h-[540px] rounded-[18px] overflow-hidden bg-[#0A1530]/90 border border-white/5">
           <canvas ref={canvasRef} className="w-full h-full cursor-crosshair" />
 
           {loading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-slate-950/60 backdrop-blur-xs text-xs text-slate-400">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#0A1530]/80 backdrop-blur-xs text-xs text-slate-300">
               Generating security network topology...
             </div>
           )}
@@ -377,7 +383,7 @@ export default function SecurityNetworkGraph() {
 
         {/* Selected Node Details Drawer */}
         {selectedNode && (
-          <div className="mt-4 rounded-xl bg-slate-900/80 backdrop-blur-md p-4 border border-white/15 animate-in fade-in slide-in-from-bottom-2">
+          <div className="mt-4 rounded-[20px] bg-[#0A1530]/90 backdrop-blur-md p-4 border border-white/15 animate-in fade-in slide-in-from-bottom-2">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div
@@ -390,18 +396,18 @@ export default function SecurityNetworkGraph() {
                   <h3 className="text-sm font-bold text-white flex items-center gap-2">
                     {selectedNode.label}
                     {selectedNode.hasRisk && (
-                      <span className="rounded bg-red-500/20 px-2 py-0.5 text-[9px] font-bold text-red-300 border border-red-500/30">
+                      <span className="rounded-full bg-red-500/20 px-2.5 py-0.5 text-[9px] font-bold text-[#F87171] border border-red-500/30">
                         RISK FLAGGED
                       </span>
                     )}
                   </h3>
-                  <p className="text-xs text-slate-400">{selectedNode.subLabel}</p>
+                  <p className="text-xs text-slate-300/80">{selectedNode.subLabel}</p>
                 </div>
               </div>
 
               <button
                 onClick={() => setSelectedNode(null)}
-                className="text-slate-400 hover:text-white text-xs px-2 py-1 rounded bg-white/5"
+                className="btn-secondary-glass text-xs cursor-pointer py-1 px-3"
               >
                 Close Inspection
               </button>
@@ -415,26 +421,26 @@ export default function SecurityNetworkGraph() {
               </div>
               <div>
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">Security Health</span>
-                <p className={`font-semibold ${selectedNode.hasRisk ? "text-red-400" : "text-emerald-400"}`}>
+                <p className={`font-semibold ${selectedNode.hasRisk ? "text-[#F87171]" : "text-[#6EE7B7]"}`}>
                   {selectedNode.hasRisk ? "Non-Compliant Entitlement Detected" : "Compliant Permissions"}
                 </p>
               </div>
               <div>
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">Actions</span>
-                <p className="text-cyan-400 cursor-pointer hover:underline">View in Directory →</p>
+                <p className="text-[#38BDF8] cursor-pointer hover:underline">View in Directory →</p>
               </div>
             </div>
           </div>
         )}
-      </div>
+      </GlassCard>
 
       {/* Out-of-Role Entitlement Insights Card */}
-      <div className="rounded-2xl liquid-glass p-5 border border-white/10">
-        <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-1">
-          <ShieldAlert size={16} className="text-red-400" />
+      <GlassCard variant="default" glow="red" className="p-4 sm:p-5">
+        <h3 className="text-sm font-bold text-[#F5F8FF] flex items-center gap-2 mb-1">
+          <ShieldAlert size={16} className="text-[#F87171]" />
           Active Out-of-Role Topology Findings ({unexpectedGrants.length})
         </h3>
-        <p className="text-xs text-slate-400 mb-4">
+        <p className="text-xs text-slate-300/80 mb-4">
           Identities holding access entitlements that bypass standard role-based access rules.
         </p>
 
@@ -446,24 +452,24 @@ export default function SecurityNetworkGraph() {
             return (
               <div
                 key={grant.id}
-                className="rounded-xl bg-red-500/10 border border-red-500/20 p-3 flex items-center justify-between"
+                className="rounded-[18px] bg-red-500/10 border border-red-500/25 p-3 flex items-center justify-between"
               >
                 <div>
                   <p className="text-xs font-bold text-red-200">
                     {u?.fullName ?? "User"} → {a?.name ?? "Asset"}
                   </p>
                   <p className="text-[10px] text-red-300/80 mt-0.5">
-                    Assigned: <strong className="font-mono">{grant.accessLevel}</strong> · Role: {u?.role}
+                    Assigned: <strong className="font-mono text-white">{grant.accessLevel}</strong> · Role: {u?.role}
                   </p>
                 </div>
-                <span className="rounded bg-red-500/30 px-2 py-0.5 text-[9px] font-bold text-red-200">
+                <span className="rounded-full bg-red-500/30 px-2.5 py-0.5 text-[9px] font-bold text-red-200">
                   FLAGGED
                 </span>
               </div>
             );
           })}
         </div>
-      </div>
+      </GlassCard>
     </div>
   );
 }
