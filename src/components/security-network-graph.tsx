@@ -130,12 +130,12 @@ export default function SecurityNetworkGraph() {
         color: hasRisk
           ? "#ef4444"
           : u.role === "ADMIN"
-          ? "#c084fc"
-          : u.role === "SECURITY_ANALYST"
-          ? "#60a5fa"
-          : u.role === "FACULTY"
-          ? "#fbbf24"
-          : "#22d3ee",
+            ? "#c084fc"
+            : u.role === "SECURITY_ANALYST"
+              ? "#60a5fa"
+              : u.role === "FACULTY"
+                ? "#fbbf24"
+                : "#22d3ee",
         data: u,
         hasRisk,
       });
@@ -163,10 +163,10 @@ export default function SecurityNetworkGraph() {
         color: hasRisk
           ? "#f87171"
           : a.criticality >= 5
-          ? "#fb7185"
-          : a.criticality === 4
-          ? "#f97316"
-          : "#a855f7",
+            ? "#fb7185"
+            : a.criticality === 4
+              ? "#f97316"
+              : "#a855f7",
         data: a,
         hasRisk,
       });
@@ -328,11 +328,10 @@ export default function SecurityNetworkGraph() {
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={() => setFilterSuspiciousOnly(!filterSuspiciousOnly)}
-            className={`btn-secondary-glass flex items-center gap-1.5 text-xs font-semibold cursor-pointer ${
-              filterSuspiciousOnly
+            className={`btn-secondary-glass flex items-center gap-1.5 text-xs font-semibold cursor-pointer ${filterSuspiciousOnly
                 ? "border-red-500/40 bg-red-950/40 text-[#F87171] glow-red"
                 : "text-slate-300"
-            }`}
+              }`}
           >
             <AlertTriangle size={14} className={filterSuspiciousOnly ? "text-[#F87171]" : "text-amber-400"} />
             {filterSuspiciousOnly ? "Showing Out-of-Role Only" : "Filter Out-of-Role Paths"}
@@ -473,4 +472,3 @@ export default function SecurityNetworkGraph() {
     </div>
   );
 }
-

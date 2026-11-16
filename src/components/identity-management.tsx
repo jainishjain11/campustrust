@@ -272,11 +272,10 @@ export default function IdentityManagement() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${
-            message.type === "success"
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${message.type === "success"
               ? "bg-emerald-500/15 text-[#6EE7B7] border border-emerald-500/35"
               : "bg-red-500/15 text-[#F87171] border border-red-500/35"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white">
@@ -434,16 +433,14 @@ export default function IdentityManagement() {
                     </td>
                     <td className="px-3 py-3.5">
                       <span
-                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${
-                          user.status === "ACTIVE"
+                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${user.status === "ACTIVE"
                             ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
                             : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                        }`}
+                          }`}
                       >
                         <span
-                          className={`h-1.5 w-1.5 rounded-full ${
-                            user.status === "ACTIVE" ? "bg-[#6EE7B7] shadow-sm shadow-emerald-400" : "bg-slate-400"
-                          }`}
+                          className={`h-1.5 w-1.5 rounded-full ${user.status === "ACTIVE" ? "bg-[#6EE7B7] shadow-sm shadow-emerald-400" : "bg-slate-400"
+                            }`}
                         />
                         {user.status}
                       </span>
@@ -467,11 +464,10 @@ export default function IdentityManagement() {
                         <button
                           onClick={() => handleToggleStatus(user)}
                           title={user.status === "ACTIVE" ? "Deactivate User" : "Activate User"}
-                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${
-                            user.status === "ACTIVE"
+                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${user.status === "ACTIVE"
                               ? "border-red-400/40 text-[#F87171] hover:bg-red-500/15"
                               : "border-emerald-400/40 text-[#6EE7B7] hover:bg-emerald-500/15"
-                          }`}
+                            }`}
                         >
                           {user.status === "ACTIVE" ? "Deactivate" : "Activate"}
                         </button>
@@ -504,11 +500,10 @@ export default function IdentityManagement() {
                     </div>
                   </div>
                   <span
-                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-semibold border ${
-                      user.status === "ACTIVE"
+                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[9px] font-semibold border ${user.status === "ACTIVE"
                         ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
                         : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                    }`}
+                      }`}
                   >
                     <span className={`h-1.5 w-1.5 rounded-full ${user.status === "ACTIVE" ? "bg-[#6EE7B7]" : "bg-slate-400"}`} />
                     {user.status}
@@ -539,11 +534,10 @@ export default function IdentityManagement() {
                   </button>
                   <button
                     onClick={() => handleToggleStatus(user)}
-                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${
-                      user.status === "ACTIVE"
+                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${user.status === "ACTIVE"
                         ? "border-red-400/40 text-[#F87171] bg-red-500/10"
                         : "border-emerald-400/40 text-[#6EE7B7] bg-emerald-500/10"
-                    }`}
+                      }`}
                   >
                     {user.status === "ACTIVE" ? "Deactivate" : "Activate"}
                   </button>
@@ -755,11 +749,10 @@ export default function IdentityManagement() {
                 <div className="flex items-center gap-2.5">
                   <h3 className="text-base font-bold text-white">{viewingUser.fullName}</h3>
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
-                      viewingUser.status === "ACTIVE"
+                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${viewingUser.status === "ACTIVE"
                         ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
                         : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                    }`}
+                      }`}
                   >
                     {viewingUser.status}
                   </span>

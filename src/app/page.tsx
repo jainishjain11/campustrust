@@ -248,9 +248,8 @@ export default function Home() {
 
       {/* Desktop Floating Glass Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col glass-raised border-r border-white/15 transition-transform duration-300 ease-out ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0`}
+        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col glass-raised border-r border-white/15 transition-transform duration-300 ease-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:translate-x-0`}
       >
         {/* Brand Logo Header */}
         <div className="flex h-[80px] items-center gap-3.5 border-b border-white/10 px-6">
@@ -298,11 +297,10 @@ export default function Home() {
                     setActivePage(item.label);
                     setSidebarOpen(false);
                   }}
-                  className={`flex w-full items-center gap-3 rounded-2xl px-3.5 py-2.5 text-left text-xs font-medium transition-all duration-200 cursor-pointer ${
-                    active
+                  className={`flex w-full items-center gap-3 rounded-2xl px-3.5 py-2.5 text-left text-xs font-medium transition-all duration-200 cursor-pointer ${active
                       ? "lens-highlight text-white font-semibold shadow-md shadow-blue-950/40"
                       : "text-slate-300/80 hover:bg-white/[0.08] hover:text-white"
-                  }`}
+                    }`}
                 >
                   <Icon size={17} className={active ? "text-[#60A5FA]" : "text-slate-400"} />
                   <span>{item.label}</span>
@@ -436,11 +434,10 @@ export default function Home() {
                           setCurrentPersona(persona);
                           setPersonaMenuOpen(false);
                         }}
-                        className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-xs transition cursor-pointer ${
-                          currentPersona.role === persona.role
+                        className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-xs transition cursor-pointer ${currentPersona.role === persona.role
                             ? "bg-blue-500/20 font-semibold text-white border border-blue-400/40"
                             : "text-slate-300 hover:bg-white/[0.08]"
-                        }`}
+                          }`}
                       >
                         <div className={`flex h-7 w-7 items-center justify-center rounded-lg text-[10px] font-bold ${persona.avatarBg}`}>
                           {persona.initials}
@@ -613,13 +610,12 @@ export default function Home() {
 
                       <div className="my-6 text-center">
                         <div
-                          className={`mx-auto flex h-36 w-36 items-center justify-center rounded-full border-[8px] transition-all duration-700 shadow-xl ${
-                            (stats.postureScore ?? 100) >= 80
+                          className={`mx-auto flex h-36 w-36 items-center justify-center rounded-full border-[8px] transition-all duration-700 shadow-xl ${(stats.postureScore ?? 100) >= 80
                               ? "border-emerald-500/35 text-[#6EE7B7] shadow-emerald-500/20"
                               : (stats.postureScore ?? 100) >= 60
-                              ? "border-amber-500/35 text-[#FCD34D] shadow-amber-500/20"
-                              : "border-red-500/35 text-[#F87171] shadow-red-500/20"
-                          }`}
+                                ? "border-amber-500/35 text-[#FCD34D] shadow-amber-500/20"
+                                : "border-red-500/35 text-[#F87171] shadow-red-500/20"
+                            }`}
                         >
                           <div>
                             <p className="text-4xl font-extrabold tracking-tight text-white tabular-nums">
@@ -664,11 +660,10 @@ export default function Home() {
                             <div className="mt-3 flex items-center justify-between">
                               <span className="text-xs text-slate-300/80 tabular-nums">{d.userCount} identities</span>
                               <span
-                                className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border tabular-nums ${
-                                  d.riskCount > 0
+                                className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border tabular-nums ${d.riskCount > 0
                                     ? "bg-red-500/15 text-[#F87171] border-red-500/35"
                                     : "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
-                                }`}
+                                  }`}
                               >
                                 {d.riskCount} {d.riskCount === 1 ? "finding" : "findings"}
                               </span>
@@ -719,15 +714,14 @@ export default function Home() {
                                 <td className="px-4 py-3.5 text-slate-300">{finding.user?.fullName ?? "—"}</td>
                                 <td className="px-4 py-3.5">
                                   <span
-                                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
-                                      finding.severity === "CRITICAL"
+                                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${finding.severity === "CRITICAL"
                                         ? "bg-red-500/15 text-[#F87171] border-red-500/35"
                                         : finding.severity === "HIGH"
-                                        ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
-                                        : finding.severity === "MEDIUM"
-                                        ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
-                                        : "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
-                                    }`}
+                                          ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
+                                          : finding.severity === "MEDIUM"
+                                            ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
+                                            : "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
+                                      }`}
                                   >
                                     {finding.severity}
                                   </span>
@@ -749,15 +743,14 @@ export default function Home() {
                                 <p className="text-[10px] font-mono text-[#7DD3FC]">{finding.findingCode}</p>
                               </div>
                               <span
-                                className={`rounded-full px-2 py-0.5 text-[9px] font-bold border shrink-0 ${
-                                  finding.severity === "CRITICAL"
+                                className={`rounded-full px-2 py-0.5 text-[9px] font-bold border shrink-0 ${finding.severity === "CRITICAL"
                                     ? "bg-red-500/15 text-[#F87171] border-red-500/35"
                                     : finding.severity === "HIGH"
-                                    ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
-                                    : finding.severity === "MEDIUM"
-                                    ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
-                                    : "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
-                                }`}
+                                      ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
+                                      : finding.severity === "MEDIUM"
+                                        ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
+                                        : "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
+                                  }`}
                               >
                                 {finding.severity}
                               </span>
@@ -850,11 +843,10 @@ export default function Home() {
               <button
                 key={item.label}
                 onClick={() => setActivePage(item.label)}
-                className={`relative flex flex-col items-center justify-center py-2 px-1 rounded-2xl transition-all duration-200 cursor-pointer ${
-                  active
+                className={`relative flex flex-col items-center justify-center py-2 px-1 rounded-2xl transition-all duration-200 cursor-pointer ${active
                     ? "lens-highlight text-white"
                     : "text-slate-300/70 hover:text-white hover:bg-white/[0.06]"
-                }`}
+                  }`}
               >
                 <Icon size={18} className={active ? "text-[#60A5FA]" : "currentColor"} />
                 <span className="text-[10px] font-medium tracking-tight mt-1 truncate max-w-full">

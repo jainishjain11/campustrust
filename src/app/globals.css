@@ -112,8 +112,8 @@ button {
 .liquid-glass-interactive,
 .glass-interactive {
   transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.24s ease,
-              box-shadow 0.24s ease;
+    border-color 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .liquid-glass-interactive:hover,
@@ -121,7 +121,7 @@ button {
   transform: translateY(-2px);
   border-color: rgba(96, 165, 250, 0.45);
   box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
-              0 20px 42px -10px rgba(59, 130, 246, 0.25);
+    0 20px 42px -10px rgba(59, 130, 246, 0.25);
 }
 
 /* Frosted Form Inputs & Dropdowns */
@@ -164,7 +164,7 @@ button {
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
-              0 10px 24px -6px rgba(59, 130, 246, 0.5);
+    0 10px 24px -6px rgba(59, 130, 246, 0.5);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -172,7 +172,7 @@ button {
   background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   transform: translateY(-1px);
   box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.45),
-              0 14px 28px -6px rgba(59, 130, 246, 0.65);
+    0 14px 28px -6px rgba(59, 130, 246, 0.65);
 }
 
 .btn-primary-glass:active {
@@ -231,14 +231,17 @@ button {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.85;
   }
+
   33% {
     transform: translate3d(60px, 45px, 0) scale(1.08);
     opacity: 1;
   }
+
   66% {
     transform: translate3d(-35px, 80px, 0) scale(0.95);
     opacity: 0.8;
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.85;
@@ -250,14 +253,17 @@ button {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.75;
   }
+
   33% {
     transform: translate3d(-50px, 60px, 0) scale(0.92);
     opacity: 0.95;
   }
+
   66% {
     transform: translate3d(40px, -30px, 0) scale(1.06);
     opacity: 0.7;
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.75;
@@ -269,14 +275,17 @@ button {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.8;
   }
+
   33% {
     transform: translate3d(70px, -45px, 0) scale(1.05);
     opacity: 0.65;
   }
+
   66% {
     transform: translate3d(-60px, -20px, 0) scale(0.96);
     opacity: 0.95;
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 0.8;
@@ -303,7 +312,7 @@ button {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(96, 165, 250, 0.2) 100%);
   border: 1px solid rgba(255, 255, 255, 0.28);
   box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
-              0 8px 24px -4px rgba(59, 130, 246, 0.35);
+    0 8px 24px -4px rgba(59, 130, 246, 0.35);
 }
 
 /* ==========================================================================
@@ -312,6 +321,7 @@ button {
 
 /* Fallback for browsers that do not support backdrop-filter */
 @supports not (backdrop-filter: blur(1px)) {
+
   .glass,
   .glass-card,
   .liquid-glass {
@@ -330,6 +340,7 @@ button {
 
 /* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce) {
+
   .glass,
   .glass-card,
   .liquid-glass {
@@ -348,6 +359,7 @@ button {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   ::before,
   ::after {

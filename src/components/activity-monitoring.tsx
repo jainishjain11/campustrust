@@ -186,11 +186,10 @@ export default function ActivityMonitoring() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md transition-all ${
-            message.type === "success"
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md transition-all ${message.type === "success"
               ? "bg-emerald-500/10 text-emerald-200 border border-emerald-500/30 shadow-lg shadow-emerald-950/20"
               : "bg-red-500/10 text-red-200 border border-red-500/30 shadow-lg shadow-red-950/20"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white cursor-pointer">
@@ -296,25 +295,23 @@ export default function ActivityMonitoring() {
             filteredLogs.map((log) => (
               <div
                 key={log.id}
-                className={`glass rounded-[18px] p-3.5 space-y-2 border transition ${
-                  log.eventType === "SUSPICIOUS_ACTIVITY"
+                className={`glass rounded-[18px] p-3.5 space-y-2 border transition ${log.eventType === "SUSPICIOUS_ACTIVITY"
                     ? "border-red-500/30 bg-red-950/20"
                     : "border-white/10"
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between gap-2">
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${
-                      log.eventType === "SUSPICIOUS_ACTIVITY"
+                    className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${log.eventType === "SUSPICIOUS_ACTIVITY"
                         ? "bg-red-500/15 text-[#F87171] border-red-500/30"
                         : log.eventType === "AUTHENTICATION"
-                        ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
-                        : log.eventType === "RISK"
-                        ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                        : log.eventType === "INCIDENT"
-                        ? "bg-purple-500/15 text-[#C084FC] border-purple-500/30"
-                        : "bg-slate-500/15 text-slate-300 border-slate-500/30"
-                    }`}
+                          ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
+                          : log.eventType === "RISK"
+                            ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
+                            : log.eventType === "INCIDENT"
+                              ? "bg-purple-500/15 text-[#C084FC] border-purple-500/30"
+                              : "bg-slate-500/15 text-slate-300 border-slate-500/30"
+                      }`}
                   >
                     {log.eventType.replace("_", " ")}
                   </span>
@@ -381,9 +378,8 @@ export default function ActivityMonitoring() {
                 filteredLogs.map((log) => (
                   <tr
                     key={log.id}
-                    className={`transition hover:bg-white/[0.04] ${
-                      log.eventType === "SUSPICIOUS_ACTIVITY" ? "bg-red-500/[0.06]" : ""
-                    }`}
+                    className={`transition hover:bg-white/[0.04] ${log.eventType === "SUSPICIOUS_ACTIVITY" ? "bg-red-500/[0.06]" : ""
+                      }`}
                   >
                     <td className="px-4 py-3.5 whitespace-nowrap">
                       <span className="font-semibold text-white block">{getTimeAgo(log.createdAt)}</span>
@@ -393,17 +389,16 @@ export default function ActivityMonitoring() {
                     </td>
                     <td className="px-3 py-3.5 whitespace-nowrap">
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${
-                          log.eventType === "SUSPICIOUS_ACTIVITY"
+                        className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${log.eventType === "SUSPICIOUS_ACTIVITY"
                             ? "bg-red-500/15 text-[#F87171] border-red-500/30"
                             : log.eventType === "AUTHENTICATION"
-                            ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
-                            : log.eventType === "RISK"
-                            ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                            : log.eventType === "INCIDENT"
-                            ? "bg-purple-500/15 text-[#C084FC] border-purple-500/30"
-                            : "bg-slate-500/15 text-slate-300 border-slate-500/30"
-                        }`}
+                              ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
+                              : log.eventType === "RISK"
+                                ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
+                                : log.eventType === "INCIDENT"
+                                  ? "bg-purple-500/15 text-[#C084FC] border-purple-500/30"
+                                  : "bg-slate-500/15 text-slate-300 border-slate-500/30"
+                          }`}
                       >
                         {log.eventType.replace("_", " ")}
                       </span>

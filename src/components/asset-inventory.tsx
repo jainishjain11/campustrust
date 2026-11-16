@@ -248,11 +248,10 @@ export default function AssetInventory() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${
-            message.type === "success"
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${message.type === "success"
               ? "bg-emerald-500/15 text-[#6EE7B7] border border-emerald-500/35"
               : "bg-red-500/15 text-[#F87171] border border-red-500/35"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white">
@@ -402,15 +401,14 @@ export default function AssetInventory() {
                     </td>
                     <td className="px-3 py-3.5">
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
-                          asset.criticality >= 5
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${asset.criticality >= 5
                             ? "bg-red-500/15 text-[#F87171] border-red-500/35"
                             : asset.criticality === 4
-                            ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
-                            : asset.criticality === 3
-                            ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
-                            : "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
-                        }`}
+                              ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
+                              : asset.criticality === 3
+                                ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
+                                : "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
+                          }`}
                       >
                         Tier {asset.criticality}/5
                       </span>
@@ -433,16 +431,14 @@ export default function AssetInventory() {
                     </td>
                     <td className="px-3 py-3.5">
                       <span
-                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${
-                          asset.status === "ACTIVE"
+                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${asset.status === "ACTIVE"
                             ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
                             : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                        }`}
+                          }`}
                       >
                         <span
-                          className={`h-1.5 w-1.5 rounded-full ${
-                            asset.status === "ACTIVE" ? "bg-[#6EE7B7] shadow-sm shadow-emerald-400" : "bg-slate-400"
-                          }`}
+                          className={`h-1.5 w-1.5 rounded-full ${asset.status === "ACTIVE" ? "bg-[#6EE7B7] shadow-sm shadow-emerald-400" : "bg-slate-400"
+                            }`}
                         />
                         {asset.status}
                       </span>
@@ -466,11 +462,10 @@ export default function AssetInventory() {
                         <button
                           onClick={() => handleToggleStatus(asset)}
                           title={asset.status === "ACTIVE" ? "Decommission Asset" : "Reactivate"}
-                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${
-                            asset.status === "ACTIVE"
+                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${asset.status === "ACTIVE"
                               ? "border-red-400/40 text-[#F87171] hover:bg-red-500/15"
                               : "border-emerald-400/40 text-[#6EE7B7] hover:bg-emerald-500/15"
-                          }`}
+                            }`}
                         >
                           {asset.status === "ACTIVE" ? "Decommission" : "Activate"}
                         </button>
@@ -503,15 +498,14 @@ export default function AssetInventory() {
                     </div>
                   </div>
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${
-                      asset.criticality >= 5
+                    className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${asset.criticality >= 5
                         ? "bg-red-500/15 text-[#F87171] border-red-500/35"
                         : asset.criticality === 4
-                        ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
-                        : asset.criticality === 3
-                        ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
-                        : "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
-                    }`}
+                          ? "bg-orange-500/15 text-[#FDA672] border-orange-500/35"
+                          : asset.criticality === 3
+                            ? "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
+                            : "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
+                      }`}
                   >
                     Tier {asset.criticality}
                   </span>
@@ -549,11 +543,10 @@ export default function AssetInventory() {
                   </button>
                   <button
                     onClick={() => handleToggleStatus(asset)}
-                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${
-                      asset.status === "ACTIVE"
+                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${asset.status === "ACTIVE"
                         ? "border-red-400/40 text-[#F87171] bg-red-500/10"
                         : "border-emerald-400/40 text-[#6EE7B7] bg-emerald-500/10"
-                    }`}
+                      }`}
                   >
                     {asset.status === "ACTIVE" ? "Decommission" : "Activate"}
                   </button>

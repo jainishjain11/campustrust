@@ -139,9 +139,8 @@ export default function IncidentManagement() {
       const result = await res.json();
       if (result.success) {
         setMessage({
-          text: `Incident ${incident.incidentCode} marked as ${newStatus}.${
-            newStatus === "RESOLVED" ? " Associated risk findings automatically resolved." : ""
-          }`,
+          text: `Incident ${incident.incidentCode} marked as ${newStatus}.${newStatus === "RESOLVED" ? " Associated risk findings automatically resolved." : ""
+            }`,
           type: "success",
         });
         await loadData();
@@ -253,11 +252,10 @@ export default function IncidentManagement() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md transition-all ${
-            message.type === "success"
-              ? "bg-emerald-500/10 text-emerald-200 border border-emerald-500/30 shadow-lg shadow-emerald-950/20"
-              : "bg-red-500/10 text-red-200 border border-red-500/30 shadow-lg shadow-red-950/20"
-          }`}
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md transition-all ${message.type === "success"
+            ? "bg-emerald-500/10 text-emerald-200 border border-emerald-500/30 shadow-lg shadow-emerald-950/20"
+            : "bg-red-500/10 text-red-200 border border-red-500/30 shadow-lg shadow-red-950/20"
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white cursor-pointer">
@@ -395,46 +393,43 @@ export default function IncidentManagement() {
                         {inc.incidentCode}
                       </span>
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
-                          inc.priority === "CRITICAL"
-                            ? "bg-red-500/15 text-[#F87171] border-red-500/30"
-                            : inc.priority === "HIGH"
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${inc.priority === "CRITICAL"
+                          ? "bg-red-500/15 text-[#F87171] border-red-500/30"
+                          : inc.priority === "HIGH"
                             ? "bg-orange-500/15 text-[#FDA672] border-orange-500/30"
                             : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                        }`}
+                          }`}
                       >
                         {inc.priority} PRIORITY
                       </span>
-                      
+
                       {/* Clear Open, In Progress, Resolved status chips */}
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${
-                          inc.status === "RESOLVED"
-                            ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/30"
-                            : inc.status === "IN_PROGRESS"
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold border ${inc.status === "RESOLVED"
+                          ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/30"
+                          : inc.status === "IN_PROGRESS"
                             ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
                             : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                        }`}
+                          }`}
                       >
                         {inc.status === "RESOLVED" ? "Resolved" : inc.status === "IN_PROGRESS" ? "In Progress" : "Open"}
                       </span>
 
                       {/* Due-Date Indicator */}
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono flex items-center gap-1 border ${
-                          inc.status === "RESOLVED"
-                            ? "bg-white/5 text-slate-400 border-white/10"
-                            : isOverdue
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono flex items-center gap-1 border ${inc.status === "RESOLVED"
+                          ? "bg-white/5 text-slate-400 border-white/10"
+                          : isOverdue
                             ? "bg-red-500/20 text-[#F87171] border-red-500/40 animate-pulse"
                             : "bg-amber-500/10 text-amber-300 border-amber-500/20"
-                        }`}
+                          }`}
                       >
                         <Calendar size={11} />
                         {inc.status === "RESOLVED"
                           ? "Remediated"
                           : isOverdue
-                          ? "SLA Overdue"
-                          : `Due: ${targetDueDate.toLocaleDateString()}`}
+                            ? "SLA Overdue"
+                            : `Due: ${targetDueDate.toLocaleDateString()}`}
                       </span>
                     </div>
 
@@ -518,11 +513,10 @@ export default function IncidentManagement() {
                             </div>
                             <div className="min-w-0 flex-1 text-xs">
                               <p
-                                className={`font-semibold ${
-                                  task.status === "COMPLETED"
-                                    ? "line-through text-slate-500"
-                                    : "text-[#F5F8FF]"
-                                }`}
+                                className={`font-semibold ${task.status === "COMPLETED"
+                                  ? "line-through text-slate-500"
+                                  : "text-[#F5F8FF]"
+                                  }`}
                               >
                                 {task.title}
                               </p>

@@ -223,11 +223,10 @@ export default function AccessReviews() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${
-            message.type === "success"
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${message.type === "success"
               ? "bg-emerald-500/15 text-[#6EE7B7] border border-emerald-500/35"
               : "bg-red-500/15 text-[#F87171] border border-red-500/35"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white">
@@ -354,9 +353,8 @@ export default function AccessReviews() {
                 filteredGrants.map((grant) => (
                   <tr
                     key={grant.id}
-                    className={`transition hover:bg-white/[0.05] ${
-                      !grant.isExpected ? "bg-red-500/[0.07]" : ""
-                    }`}
+                    className={`transition hover:bg-white/[0.05] ${!grant.isExpected ? "bg-red-500/[0.07]" : ""
+                      }`}
                   >
                     <td className="px-4 py-3.5">
                       <div>
@@ -374,13 +372,12 @@ export default function AccessReviews() {
                     </td>
                     <td className="px-3 py-3.5">
                       <span
-                        className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold border ${
-                          grant.accessLevel === "ADMIN"
+                        className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold border ${grant.accessLevel === "ADMIN"
                             ? "bg-purple-500/15 text-purple-200 border-purple-400/35"
                             : grant.accessLevel === "WRITE"
-                            ? "bg-blue-500/15 text-blue-200 border-blue-400/35"
-                            : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                        }`}
+                              ? "bg-blue-500/15 text-blue-200 border-blue-400/35"
+                              : "bg-slate-500/15 text-slate-300 border-slate-500/35"
+                          }`}
                       >
                         {grant.accessLevel}
                       </span>
@@ -406,11 +403,10 @@ export default function AccessReviews() {
                         <button
                           onClick={() => handleToggleCompliance(grant)}
                           title={grant.isExpected ? "Flag as Out-of-Role" : "Certify as Compliant"}
-                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${
-                            grant.isExpected
+                          className={`rounded-full px-3 py-1 text-[11px] font-semibold border transition cursor-pointer ${grant.isExpected
                               ? "border-amber-400/40 text-[#FCD34D] hover:bg-amber-500/15"
                               : "border-emerald-400/40 text-[#6EE7B7] hover:bg-emerald-500/15"
-                          }`}
+                            }`}
                         >
                           {grant.isExpected ? "Flag Out-of-Role" : "Certify Access"}
                         </button>
@@ -441,11 +437,10 @@ export default function AccessReviews() {
             filteredGrants.map((grant) => (
               <div
                 key={grant.id}
-                className={`rounded-2xl p-4 border space-y-3 ${
-                  !grant.isExpected
+                className={`rounded-2xl p-4 border space-y-3 ${!grant.isExpected
                     ? "bg-red-500/[0.08] border-red-500/30"
                     : "bg-white/[0.03] border-white/10"
-                }`}
+                  }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
@@ -453,13 +448,12 @@ export default function AccessReviews() {
                     <p className="text-[11px] text-slate-300/80 font-mono">{grant.user.role} {grant.user.department ? `· ${grant.user.department.name}` : ""}</p>
                   </div>
                   <span
-                    className={`rounded-full px-2.5 py-0.5 font-mono text-[9px] font-bold border ${
-                      grant.accessLevel === "ADMIN"
+                    className={`rounded-full px-2.5 py-0.5 font-mono text-[9px] font-bold border ${grant.accessLevel === "ADMIN"
                         ? "bg-purple-500/15 text-purple-200 border-purple-400/35"
                         : grant.accessLevel === "WRITE"
-                        ? "bg-blue-500/15 text-blue-200 border-blue-400/35"
-                        : "bg-slate-500/15 text-slate-300 border-slate-500/35"
-                    }`}
+                          ? "bg-blue-500/15 text-blue-200 border-blue-400/35"
+                          : "bg-slate-500/15 text-slate-300 border-slate-500/35"
+                      }`}
                   >
                     {grant.accessLevel}
                   </span>
@@ -490,11 +484,10 @@ export default function AccessReviews() {
                 <div className="flex items-center justify-end gap-2 pt-2 border-t border-white/5">
                   <button
                     onClick={() => handleToggleCompliance(grant)}
-                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${
-                      grant.isExpected
+                    className={`rounded-full px-3 py-1 text-[11px] font-semibold border ${grant.isExpected
                         ? "border-amber-400/40 text-[#FCD34D] bg-amber-500/10"
                         : "border-emerald-400/40 text-[#6EE7B7] bg-emerald-500/10"
-                    }`}
+                      }`}
                   >
                     {grant.isExpected ? "Flag" : "Certify"}
                   </button>

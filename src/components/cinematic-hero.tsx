@@ -276,4 +276,3 @@ export default function CinematicHero({ onEnter, onSelectModule }: CinematicHero
     </div>
   );
 }
-

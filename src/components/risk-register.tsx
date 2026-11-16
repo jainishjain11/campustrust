@@ -254,11 +254,10 @@ export default function RiskRegister() {
       {/* Alert Banner */}
       {message && (
         <div
-          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${
-            message.type === "success"
+          className={`flex items-center justify-between rounded-2xl p-4 text-xs backdrop-blur-md ${message.type === "success"
               ? "bg-emerald-500/15 text-[#6EE7B7] border border-emerald-500/35"
               : "bg-red-500/15 text-[#F87171] border border-red-500/35"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="ml-4 text-slate-400 hover:text-white">
@@ -386,11 +385,10 @@ export default function RiskRegister() {
                             setSelectedCell({ l: lh, i: imp });
                           }
                         }}
-                        className={`relative rounded-2xl p-3 border transition-all duration-200 cursor-pointer flex flex-col justify-between h-[84px] text-left ${cfg.cellBg} ${
-                          isSelected
+                        className={`relative rounded-2xl p-3 border transition-all duration-200 cursor-pointer flex flex-col justify-between h-[84px] text-left ${cfg.cellBg} ${isSelected
                             ? "ring-2 ring-white scale-[1.03] shadow-lg shadow-blue-500/30"
                             : "hover:scale-[1.01]"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-center justify-between w-full">
                           <span className="font-mono text-sm font-extrabold text-white tabular-nums">
@@ -577,13 +575,12 @@ export default function RiskRegister() {
                       </td>
                       <td className="px-3 py-3.5">
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${
-                            risk.status === "RESOLVED"
+                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${risk.status === "RESOLVED"
                               ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/35"
                               : risk.status === "IN_PROGRESS"
-                              ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
-                              : "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
-                          }`}
+                                ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/35"
+                                : "bg-amber-500/15 text-[#FCD34D] border-amber-500/35"
+                            }`}
                         >
                           {risk.status.replace("_", " ")}
                         </span>

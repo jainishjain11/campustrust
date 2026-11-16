@@ -244,13 +244,12 @@ export default function ReportsModule() {
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#38BDF8]">{finding.findingCode}</span>
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${
-                        finding.severity === "CRITICAL"
+                      className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${finding.severity === "CRITICAL"
                           ? "bg-red-500/15 text-[#F87171] border-red-500/30"
                           : finding.severity === "HIGH"
-                          ? "bg-orange-500/15 text-[#FDA672] border-orange-500/30"
-                          : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                      }`}
+                            ? "bg-orange-500/15 text-[#FDA672] border-orange-500/30"
+                            : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
+                        }`}
                     >
                       {finding.severity}
                     </span>
@@ -289,26 +288,24 @@ export default function ReportsModule() {
                       <td className="px-3 py-3 font-mono font-bold text-white tabular-nums">{finding.score}/25</td>
                       <td className="px-3 py-3">
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${
-                            finding.severity === "CRITICAL"
+                          className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${finding.severity === "CRITICAL"
                               ? "bg-red-500/15 text-[#F87171] border-red-500/30"
                               : finding.severity === "HIGH"
-                              ? "bg-orange-500/15 text-[#FDA672] border-orange-500/30"
-                              : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                          }`}
+                                ? "bg-orange-500/15 text-[#FDA672] border-orange-500/30"
+                                : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
+                            }`}
                         >
                           {finding.severity}
                         </span>
                       </td>
                       <td className="px-3 py-3">
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${
-                            finding.status === "RESOLVED"
+                          className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold border ${finding.status === "RESOLVED"
                               ? "bg-emerald-500/15 text-[#6EE7B7] border-emerald-500/30"
                               : finding.status === "IN_PROGRESS"
-                              ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
-                              : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
-                          }`}
+                                ? "bg-blue-500/15 text-[#60A5FA] border-blue-500/30"
+                                : "bg-amber-500/15 text-[#FCD34D] border-amber-500/30"
+                            }`}
                         >
                           {finding.status}
                         </span>
